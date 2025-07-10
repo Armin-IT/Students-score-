@@ -1,4 +1,4 @@
-# Simple Inventory Management System (No external libraries)
+# Simple Inventory Management System
 
 # Data storage
 inventory = {}  # key: item code, value: item info dictionary
