@@ -23,22 +23,22 @@ def add_item():
         "expiry": expiry,
         "supplier": supplier
     }
-    print("✅ Item added successfully.")
+    print(" Item added successfully.")
 
 # 2. Delete item
 def delete_item():
     code = input("Enter item code to delete: ")
     if code in inventory:
         del inventory[code]
-        print("✅ Item deleted.")
+        print(" Item deleted.")
     else:
-        print("❌ Item not found.")
+        print(" Item not found.")
 
 # 3. Edit item
 def edit_item():
     code = input("Enter item code to edit: ")
     if code not in inventory:
-        print("❌ Item not found.")
+        print(" Item not found.")
         return
 
     print("1. Name | 2. Quantity | 3. Price | 4. Expiry Date")
@@ -52,12 +52,12 @@ def edit_item():
     elif choice == "4":
         inventory[code]["expiry"] = input("Enter new expiry date (YYYY-MM-DD): ")
     else:
-        print("❌ Invalid option.")
+        print(" Invalid option.")
 
 # 4. List items
 def list_items():
     if not inventory:
-        print("📦 Inventory is empty.")
+        print(" Inventory is empty.")
         return
     for code, info in inventory.items():
         print(f"\nCode: {code}")
@@ -75,24 +75,24 @@ def search_item():
                 print(f"{key.capitalize()}: {value}")
             found = True
     if not found:
-        print("❌ No item found.")
+        print(" No item found.")
 
 # 6. Total inventory value
 def calculate_total_value():
     total = 0
     for item in inventory.values():
         total += item["quantity"] * item["price"]
-    print(f"💰 Total inventory value: {total:.2f}")
+    print(f" Total inventory value: {total:.2f}")
 
 # 7. Report (near expiry and low stock)
 def generate_report():
-    print("\n📋 Items with expiry date within 30 days (manual check needed):")
+    print("\n Items with expiry date within 30 days (manual check needed):")
     for code, item in inventory.items():
         expiry = item["expiry"]
         # Since we can't calculate days left without datetime, we just display the date.
         print(f"{item['name']} (Code: {code}) - Expiry: {expiry}")
 
-    print("\n📋 Items with quantity less than 10:")
+    print("\n Items with quantity less than 10:")
     for code, item in inventory.items():
         if item["quantity"] < 10:
             print(f"{item['name']} (Code: {code}) - Quantity: {item['quantity']}")
@@ -109,17 +109,17 @@ def manage_suppliers():
             phone = input("Enter phone number: ")
             address = input("Enter address: ")
             suppliers[name] = {"phone": phone, "address": address}
-            print("✅ Supplier added.")
+            print(" Supplier added.")
     elif choice == "2":
         if name not in suppliers:
-            print("❌ Supplier not found.")
+            print(" Supplier not found.")
         else:
             phone = input("Enter new phone number: ")
             address = input("Enter new address: ")
             suppliers[name] = {"phone": phone, "address": address}
-            print("✅ Supplier updated.")
+            print(" Supplier updated.")
     else:
-        print("❌ Invalid choice.")
+        print(" Invalid choice.")
 
 # Main menu
 def main_menu():
@@ -156,7 +156,7 @@ def main_menu():
             print("Exiting program...")
             break
         else:
-            print("❌ Invalid choice. Please try again.")
+            print(" Invalid choice. Please try again.")
 
 # Run the program
 main_menu()
